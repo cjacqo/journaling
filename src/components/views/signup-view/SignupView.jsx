@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Form from '../form/Form'
+import Form from '../../form/Form'
 
 const SignupView = () => {
   // State values for values of input fields

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
-import Form from '../form/Form'
+import Form from '../../form/Form'
 
 const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState('')
