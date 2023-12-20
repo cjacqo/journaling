@@ -1,7 +1,11 @@
+import PropTypes from 'prop-types'
 import { CalendarDays, Cell } from './calendarComponents'
 
-const Calendar = () => {
+const Calendar = ({ currentDate, setCurrentDate }) => {
   const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
+
+  console.log(currentDate)
+  console.log(setCurrentDate)
 
   return (
     <div className='w-[400px] border-t border-l'>
@@ -21,6 +25,11 @@ const Calendar = () => {
       </div>
     </div>
   )
+}
+
+Calendar.propTypes = {
+  currentDate: PropTypes.object.isRequired,
+  setCurrentDate: PropTypes.func.isRequired
 }
 
 export default Calendar

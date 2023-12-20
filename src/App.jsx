@@ -13,6 +13,8 @@ function App() {
   const [token, setToken] = useState(storedToken ? storedToken : null)
   // State values for user entries
   const [entries, setEntries] = useState([])
+  // Current date set
+  const [currentDate, setCurrentDate] = useState(new Date())
 
   // Fetch entries for the user
   useEffect(() => {
@@ -73,7 +75,7 @@ function App() {
                 !user ? (
                   <Navigate to='/signup' replace />
                 ) : (
-                  <HomeView entries={entries} />
+                  <HomeView entries={entries} currentDate={currentDate} setCurrentDate={setCurrentDate} />
                 )
               }
             </>
