@@ -10,7 +10,7 @@ const Cell = ({ className, children }) => {
 }
 
 Cell.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   children: PropTypes.string.isRequired
 }
 
