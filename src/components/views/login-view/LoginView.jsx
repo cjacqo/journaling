@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types'
 import Form from '../../form/Form'
+import NavigateButton from '../../buttons/NavigateButton'
 
 const LoginView = ({ onLoggedIn }) => {
   const [username, setUsername] = useState('')
@@ -54,12 +55,18 @@ const LoginView = ({ onLoggedIn }) => {
   ]
 
   return (
-    <Form
-      formType='login'
-      title='Login'
-      handleSubmit={handleSubmit}
-      inputs={inputs}
-      buttonText='Submit' />
+    <>
+      <Form
+        formType='login'
+        title='Login'
+        handleSubmit={handleSubmit}
+        inputs={inputs}
+        buttonText='Submit' />
+      <NavigateButton
+        route='signup'
+        text='Don&apos;t have an account?'
+        link='Sign up!' />
+    </>
   )
 }
 

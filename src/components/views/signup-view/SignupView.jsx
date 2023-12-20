@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Form from '../../form/Form'
+import NavigateButton from '../../buttons/NavigateButton'
 
 const SignupView = () => {
   // State values for values of input fields
@@ -80,12 +81,18 @@ const SignupView = () => {
   ]
   
   return (
-    <Form
-      formType='signup'
-      title='Signup'
-      handleSubmit={handleSubmit}
-      inputs={inputs}
-      buttonText='Submit' />
+    <>
+      <Form
+        formType='signup'
+        title='Signup'
+        handleSubmit={handleSubmit}
+        inputs={inputs}
+        buttonText='Submit' />
+      <NavigateButton
+        route='login'
+        text='Already have an account?'
+        link='Sign in!' />
+    </>
   )
 }
 
