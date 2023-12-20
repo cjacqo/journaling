@@ -1,4 +1,4 @@
-import { Cell } from './calendarComponents'
+import { CalendarDays, Cell } from './calendarComponents'
 
 const Calendar = () => {
   const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
@@ -15,6 +15,9 @@ const Calendar = () => {
 
         {/* Loop over daysOfWeek to make cells */}
         { daysOfWeek.map((day, i) => <Cell key={i} className='text-sm font-bold'>{day}</Cell>) }
+        
+        {/* Calendar Days */}
+        <CalendarDays />
       </div>
     </div>
   )
