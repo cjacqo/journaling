@@ -8,6 +8,7 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
   const endDate = endOfMonth(currentDate)
   const numDays = differenceInDays(endDate, startDate) + 1
   const preceedingDays = startDate.getDay()
+  const remainingDays = 6 - endDate.getDay()
   
   return (
     <div className='w-[400px] border-t border-l'>
@@ -23,7 +24,10 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
         { daysOfWeek.map((day, i) => <Cell key={i} className='text-sm font-bold'>{day}</Cell>) }
         
         {/* Calendar Days */}
-        <CalendarDays numDays={numDays} preceedingDays={preceedingDays} />
+        <CalendarDays
+          numDays={numDays}
+          preceedingDays={preceedingDays}
+          remainingDays={remainingDays} />
       </div>
     </div>
   )
