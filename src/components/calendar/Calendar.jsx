@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { add, differenceInDays, endOfMonth, startOfMonth, sub } from 'date-fns'
+import { add, differenceInDays, endOfMonth, format, startOfMonth, sub } from 'date-fns'
 import { CalendarDays, Cell } from './calendarComponents'
 
 const Calendar = ({ currentDate, setCurrentDate }) => {
@@ -22,7 +22,7 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
         {/* Calendar Header */}
         <Cell onClick={prevYear}>{'<<'}</Cell>
         <Cell onClick={prevMonth}>{'<'}</Cell>
-        <Cell className='col-span-3'>December 2023</Cell>
+        <Cell className='col-span-3'>{format(currentDate, 'LLLL yyyy')}</Cell>
         <Cell onClick={nextMonth}>{'>'}</Cell>
         <Cell onClick={nextYear}>{'>>'}</Cell>
 
