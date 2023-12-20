@@ -33,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* SIGNUP ROUTE */}
         <Route
           path='/signup'
           element={
@@ -47,6 +48,7 @@ function App() {
             </>
           }
         />
+        {/* LOGIN ROUTE */}
         <Route
           path='/login'
           element={
@@ -56,6 +58,21 @@ function App() {
                   <Navigate to='/' />
                 ) : (
                   <LoginView onLoggedIn={(user, token) => { setUser(user); setToken(token); }} />
+                )
+              }
+            </>
+          }
+        />
+        {/* HOME ROUTE */}
+        <Route
+          path='/'
+          element={
+            <>
+              {
+                !user ? (
+                  <Navigate to='/login' replace />
+                ) : (
+                  <h1>Home</h1>
                 )
               }
             </>
