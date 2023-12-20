@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { differenceInDays, endOfMonth, startOfMonth } from 'date-fns'
+import { differenceInDays, endOfMonth, setDate, startOfMonth } from 'date-fns'
 import { CalendarDays, CalendarDaysOfWeek, CalendarHeader } from './calendarComponents'
 
 const Calendar = ({ currentDate, setCurrentDate }) => {
@@ -8,6 +8,8 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
   const numDays = differenceInDays(endDate, startDate) + 1
   const preceedingDays = startDate.getDay()
   const remainingDays = 6 - endDate.getDay()
+
+  const handleClickDate = (day) => setCurrentDate(setDate(currentDate, day))
 
   return (
     <div className='w-[400px] border-t border-l'>
@@ -24,7 +26,8 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
         <CalendarDays
           numDays={numDays}
           preceedingDays={preceedingDays}
-          remainingDays={remainingDays} />
+          remainingDays={remainingDays}
+          handleClickDate={handleClickDate} />
       </div>
     </div>
   )
