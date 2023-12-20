@@ -9,11 +9,6 @@ const Calendar = () => {
         <Cell className='col-span-3'>December 2023</Cell>
         <Cell>{'>'}</Cell>
         <Cell>{'>>'}</Cell>
-        {/* <CalendarDirectionButton icon={'<<'} />
-        <CalendarDirectionButton icon={'<'} />
-        <SelectedMonth month='December' year='2023' />
-        <CalendarDirectionButton icon={'>'} />
-        <CalendarDirectionButton icon={'>>'} /> */}
       </div>
     </div>
   )
