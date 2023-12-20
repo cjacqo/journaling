@@ -9,8 +9,6 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
   const preceedingDays = startDate.getDay()
   const remainingDays = 6 - endDate.getDay()
 
-  console.log(currentDate)
-  
   return (
     <div className='w-[400px] border-t border-l'>
       <div className='grid grid-cols-7 items-center justify-center text-center'>
