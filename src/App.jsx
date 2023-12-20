@@ -70,7 +70,7 @@ function App() {
             <>
               {
                 !user ? (
-                  <Navigate to='/login' replace />
+                  <Navigate to='/signup' replace />
                 ) : (
                   <h1>Home</h1>
                 )
