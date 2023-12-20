@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import Calendar from '../../calendar/Calendar'
 
 const HomeView = ({ entries }) => {
   return (
-    <div>HomeView</div>
+    <div>
+      <Calendar />
+    </div>
   )
 }
 
