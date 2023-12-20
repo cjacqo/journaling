@@ -1,9 +1,9 @@
-import Cell from "./Cell";
 import CalendarHeader from "./CalendarHeader";
+import CalendarDaysOfWeek from "./CalendarDaysOfWeek";
 import CalendarDays from "./CalendarDays";
 
 export {
-  Cell,
   CalendarHeader,
+  CalendarDaysOfWeek,
   CalendarDays
 }
