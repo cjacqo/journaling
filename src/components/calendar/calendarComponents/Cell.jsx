@@ -11,7 +11,7 @@ const Cell = ({ className, children }) => {
 
 Cell.propTypes = {
   className: PropTypes.string,
-  children: PropTypes.string.isRequired
+  children: PropTypes.any
 }
 
 export default Cell

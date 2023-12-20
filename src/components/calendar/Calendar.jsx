@@ -1,12 +1,14 @@
 import PropTypes from 'prop-types'
+import { differenceInDays, endOfMonth, startOfMonth } from 'date-fns'
 import { CalendarDays, Cell } from './calendarComponents'
 
 const Calendar = ({ currentDate, setCurrentDate }) => {
   const daysOfWeek = ['Sun', 'Mon', 'Tues', 'Wed', 'Thur', 'Fri', 'Sat']
-
-  console.log(currentDate)
-  console.log(setCurrentDate)
-
+  const startDate = startOfMonth(currentDate)
+  const endDate = endOfMonth(currentDate)
+  const numDays = differenceInDays(endDate, startDate) + 1
+  const preceedingDays = startDate.getDay()
+  
   return (
     <div className='w-[400px] border-t border-l'>
       <div className='grid grid-cols-7 items-center justify-center text-center'>
@@ -21,7 +23,7 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
         { daysOfWeek.map((day, i) => <Cell key={i} className='text-sm font-bold'>{day}</Cell>) }
         
         {/* Calendar Days */}
-        <CalendarDays />
+        <CalendarDays numDays={numDays} preceedingDays={preceedingDays} />
       </div>
     </div>
   )
