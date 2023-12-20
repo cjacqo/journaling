@@ -1,7 +1,7 @@
 import './App.css'
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
-import { LoginView, SignupView } from './components/views'
+import { HomeView, LoginView, SignupView } from './components/views'
 
 function App() {
   // Look for items in local storage
@@ -72,7 +72,7 @@ function App() {
                 !user ? (
                   <Navigate to='/signup' replace />
                 ) : (
-                  <h1>Home</h1>
+                  <HomeView entries={entries} />
                 )
               }
             </>
