@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { format } from 'date-fns'
-import Entry from './entriesComponents/Entry'
+import { EntriesList } from './entriesComponents'
 
 const Entries = ({ entries, currentDate, selectedDay }) => {
   const isCurrentAndSelectedDateSameAsEntry = (entryDate) => {
@@ -13,13 +13,18 @@ const Entries = ({ entries, currentDate, selectedDay }) => {
   }
   return (
     <div>
-      {
+      {/* Display a list of the entries */}
+      <EntriesList
+        entries={entries}
+        showEntries={isCurrentAndSelectedDateSameAsEntry} />
+      
+      {/* {
         entries.map(entry => {
           if (isCurrentAndSelectedDateSameAsEntry(entry.CreatedAt)) {
             return <Entry key={entry._id} entry={entry} />
           }
         })
-      }
+      } */}
     </div>
   )
   
