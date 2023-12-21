@@ -9,8 +9,10 @@ const Calendar = ({ currentDate, selectedDay, setCurrentDate, setSelectedDay }) 
   const preceedingDays = startDate.getDay()
   const remainingDays = 6 - endDate.getDay()
 
+  // Returns a boolean that is passed to CalendarDays to set active cell if true
   const currentMonthIsSelectedMonth = format(currentDate, 'LLLL yyyy') === format(selectedDay, 'LLLL yyyy')
 
+  // Sets the selectedDay by the user for use in setting the active cell in the CalendarDays
   const handleClickDate = (day) => setSelectedDay(setDate(currentDate, day))
 
   return (
