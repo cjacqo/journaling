@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import { format } from 'date-fns'
 import PropTypes from 'prop-types'
 
-const EntriesList = ({ entries, currentDate, selectedDay }) => {
+const EntriesList = ({ entries, currentDate, selectedDay, setSelectedEntry, setModalOpen }) => {
   const [shownEntries, setShownEntries] = useState([])
 
   useEffect(() => {
@@ -22,6 +22,13 @@ const EntriesList = ({ entries, currentDate, selectedDay }) => {
   const getEntriesForSelectedDay = () => {
     setShownEntries(entries.filter(entry => selectedDayFormat === format(new Date(entry.CreatedAt), 'LLLL dd yyyy')))
   }
+
+  const handleEntrySelection = (entry) => {
+    console.log(entry)
+    setSelectedEntry(entry)
+    setModalOpen(true)
+  }
+
   return (
     <div className='container mx-auto flex flex-col gap-4 mt-3'>
       {
@@ -33,7 +40,10 @@ const EntriesList = ({ entries, currentDate, selectedDay }) => {
           shownEntries.map(entry => {
             if (isCurrentAndSelectedDateSameAsEntry(entry.CreatedAt)) {
               return (
-                <div key={entry._id} className='flex justify-between border px-2 py-3 w-100'>
+                <div
+                  key={entry._id}
+                  className='flex justify-between border px-2 py-3 w-100'
+                  onClick={() => handleEntrySelection(entry)}>
                   <h3>{entry.Title}</h3>
                   <p>{format(entry.CreatedAt, 'LLL dd yyyy')}</p>
                 </div>
@@ -50,7 +60,9 @@ const EntriesList = ({ entries, currentDate, selectedDay }) => {
 EntriesList.propTypes = {
   entries: PropTypes.array.isRequired,
   currentDate: PropTypes.object.isRequired,
-  selectedDay: PropTypes.object.isRequired
+  selectedDay: PropTypes.object.isRequired,
+  setSelectedEntry: PropTypes.func.isRequired,
+  setModalOpen: PropTypes.func.isRequired
 }
 
 export default EntriesList
