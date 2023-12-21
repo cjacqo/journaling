@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 import Calendar from '../../calendar/Calendar'
+import Entries from '../../entries/Entries'
 
 const HomeView = ({
   entries,
@@ -7,7 +8,6 @@ const HomeView = ({
   selectedDay,
   setCurrentDate,
   setSelectedDay }) => {
-  console.log(entries)
   return (
     <div>
       <Calendar
@@ -15,6 +15,10 @@ const HomeView = ({
         selectedDay={selectedDay}
         setCurrentDate={setCurrentDate}
         setSelectedDay={setSelectedDay} />
+      <Entries
+        entries={entries}
+        currentDate={currentDate}
+        selectedDay={selectedDay} />
     </div>
   )
 }
