@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types'
-import { differenceInDays, endOfMonth, setDate, startOfMonth } from 'date-fns'
+import { differenceInDays, endOfMonth, format, setDate, startOfMonth } from 'date-fns'
 import { CalendarDays, CalendarDaysOfWeek, CalendarHeader } from './calendarComponents'
 
-const Calendar = ({ currentDate, setCurrentDate }) => {
+const Calendar = ({ currentDate, selectedDay, setCurrentDate, setSelectedDay }) => {
   const startDate = startOfMonth(currentDate)
   const endDate = endOfMonth(currentDate)
   const numDays = differenceInDays(endDate, startDate) + 1
   const preceedingDays = startDate.getDay()
   const remainingDays = 6 - endDate.getDay()
 
-  const handleClickDate = (day) => setCurrentDate(setDate(currentDate, day))
+  const currentMonthIsSelectedMonth = format(currentDate, 'LLLL yyyy') === format(selectedDay, 'LLLL yyyy')
+
+  const handleClickDate = (day) => setSelectedDay(setDate(currentDate, day))
 
   return (
     <div className='w-[400px] border-t border-l'>
@@ -24,10 +26,12 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
         
         {/* Calendar Days */}
         <CalendarDays
+          selectedDay={selectedDay}
           numDays={numDays}
           preceedingDays={preceedingDays}
           remainingDays={remainingDays}
-          handleClickDate={handleClickDate} />
+          handleClickDate={handleClickDate}
+          isCurrentMonthSelectedMonth={currentMonthIsSelectedMonth} />
       </div>
     </div>
   )
@@ -35,7 +39,9 @@ const Calendar = ({ currentDate, setCurrentDate }) => {
 
 Calendar.propTypes = {
   currentDate: PropTypes.object.isRequired,
-  setCurrentDate: PropTypes.func.isRequired
+  selectedDay: PropTypes.object.isRequired,
+  setCurrentDate: PropTypes.func.isRequired,
+  setSelectedDay: PropTypes.func.isRequired
 }
 
 export default Calendar

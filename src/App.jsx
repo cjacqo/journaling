@@ -8,14 +8,16 @@ function App() {
   // Look for items in local storage
   const storedUser = JSON.parse(localStorage.getItem('user'))
   const storedToken = localStorage.getItem('token')
-  const storedDate = new Date(localStorage.getItem('date'))
+  const storedDate = localStorage.getItem('date')
+  const storedSelectedDay = localStorage.getItem('selectedDay')
   // State values for user and token if in local storage or set to null
   const [user, setUser] = useState(storedUser ? storedUser : null)
   const [token, setToken] = useState(storedToken ? storedToken : null)
   // State values for user entries
   const [entries, setEntries] = useState([])
   // Current date set
-  const [currentDate, setCurrentDate] = useState(storedDate ? storedDate : new Date())
+  const [currentDate, setCurrentDate] = useState(storedDate ? new Date(storedDate) : new Date())
+  const [selectedDay, setSelectedDay] = useState(storedSelectedDay ? new Date(storedSelectedDay) : new Date())
 
   // Fetch entries for the user
   useEffect(() => {
@@ -38,6 +40,12 @@ function App() {
   const handleDateChange = (date) => {
     localStorage.setItem('date', date)
     setCurrentDate(date)
+  }
+
+  // Handle selected day of the calendar
+  const handleSelectedDay = (day) => {
+    localStorage.setItem('selectedDay', new Date(day))
+    setSelectedDay(day)
   }
   
   return (
@@ -82,7 +90,12 @@ function App() {
                 !user ? (
                   <Navigate to='/signup' replace />
                 ) : (
-                  <HomeView entries={entries} currentDate={currentDate} setCurrentDate={handleDateChange} />
+                  <HomeView
+                    entries={entries}
+                    currentDate={currentDate}
+                    selectedDay={selectedDay}
+                    setCurrentDate={handleDateChange}
+                    setSelectedDay={handleSelectedDay} />
                 )
               }
             </>
