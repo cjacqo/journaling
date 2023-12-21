@@ -22,6 +22,7 @@ const Entries = ({ entries, currentDate, selectedDay }) => {
       }
     </div>
   )
+  
 }
 
 Entries.propTypes = {
