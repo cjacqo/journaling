@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { differenceInDays, endOfMonth, format, setDate, startOfMonth } from 'date-fns'
-import { CalendarDays, CalendarDaysOfWeek, CalendarHeader } from './calendarComponents'
+import { CalendarDays, CalendarDaysOfWeek, CalendarHeader, TodayButton } from './calendarComponents'
 
 const Calendar = ({ currentDate, selectedDay, setCurrentDate, setSelectedDay }) => {
   const startDate = startOfMonth(currentDate)
@@ -16,24 +16,27 @@ const Calendar = ({ currentDate, selectedDay, setCurrentDate, setSelectedDay }) 
   const handleClickDate = (day) => setSelectedDay(setDate(currentDate, day))
 
   return (
-    <div className='w-[400px] border-t border-l'>
-      <div className='grid grid-cols-7 items-center justify-center text-center'>
-        {/* Calendar Header */}
-        <CalendarHeader
-          currentDate={currentDate}
-          setCurrentDate={setCurrentDate} />
+    <div>
+      <TodayButton setCurrentDate={setCurrentDate} setSelectedDay={setSelectedDay} />
+      <div className='w-[400px] border-t border-l'>
+        <div className='grid grid-cols-7 items-center justify-center text-center'>
+          {/* Calendar Header */}
+          <CalendarHeader
+            currentDate={currentDate}
+            setCurrentDate={setCurrentDate} />
 
-        {/* Days of the Week */}
-        <CalendarDaysOfWeek />
-        
-        {/* Calendar Days */}
-        <CalendarDays
-          selectedDay={selectedDay}
-          numDays={numDays}
-          preceedingDays={preceedingDays}
-          remainingDays={remainingDays}
-          handleClickDate={handleClickDate}
-          isCurrentMonthSelectedMonth={currentMonthIsSelectedMonth} />
+          {/* Days of the Week */}
+          <CalendarDaysOfWeek />
+          
+          {/* Calendar Days */}
+          <CalendarDays
+            selectedDay={selectedDay}
+            numDays={numDays}
+            preceedingDays={preceedingDays}
+            remainingDays={remainingDays}
+            handleClickDate={handleClickDate}
+            isCurrentMonthSelectedMonth={currentMonthIsSelectedMonth} />
+        </div>
       </div>
     </div>
   )
