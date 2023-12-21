@@ -18,14 +18,26 @@ const FormInput = ({ input }) => {
   return (
     <div className="form-control">
       <label htmlFor={htmlFor}>{`${label}:`}</label>
-      <input
-        type={type}
-        className='form-input'
-        id={htmlFor}
-        placeholder={`${label}...`}
-        value={value}
-        onChange={e => changeHandler(e.target.value)}
-        required={required} />
+      {
+        type === 'textarea' ? (
+          <textarea
+            className='form-input'
+            id={htmlFor}
+            placeholder={`${label}...`}
+            value={value}
+            onChange={e => changeHandler(e.target.value)}
+            required={required} />
+        ) : (
+          <input
+            type={type}
+            className='form-input'
+            id={htmlFor}
+            placeholder={`${label}...`}
+            value={value}
+            onChange={e => changeHandler(e.target.value)}
+            required={required} />
+        )
+      }
     </div>
   )
 }

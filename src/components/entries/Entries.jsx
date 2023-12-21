@@ -17,7 +17,7 @@ const Entries = ({ entries, currentDate, selectedDay }) => {
         setModalOpen={setModalOpen} />
       
       {/* Modal for a selected entry */}
-      { modalOpen && <EntryModal entry={selectedEntry} setModalOpen={setModalOpen} /> }
+      { modalOpen && <EntryModal entry={selectedEntry} modalOpen={modalOpen} setModalOpen={setModalOpen} /> }
     </div>
   )
   
