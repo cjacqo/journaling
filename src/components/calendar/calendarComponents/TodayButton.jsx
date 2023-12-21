@@ -9,7 +9,10 @@ const TodayButton = ({ setCurrentDate, setSelectedDay }) => {
   }
   
   return (
-    <Button clickHandler={clickHandler} text='Today' />
+    <Button
+      className='my-2 bg-blue-600 hover:bg-blue-700 active:bg-blue-800'
+      clickHandler={clickHandler}
+      text='Today' />
   )
 }
 
