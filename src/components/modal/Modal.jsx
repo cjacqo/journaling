@@ -14,7 +14,7 @@ const Modal = ({ children, className, modalOpen, setModalOpen }) => {
       <div
         onClick={e => e.stopPropagation()}
         className={`
-          relative bg-blue-300 rounded-xl shadow p-6 h-[400px] w-[400px]
+          relative bg-blue-300 rounded-xl shadow-xl p-6 h-[450px] w-[400px]
           transition-all ${modalOpen ? 'scale-100 opacity-100' : 'scale-125 opacity-0'}
         `}>
         <button
