@@ -7,7 +7,8 @@ const HomeView = ({
   currentDate,
   selectedDay,
   setCurrentDate,
-  setSelectedDay }) => {
+  setSelectedDay,
+  fetchUserEntries }) => {
   return (
     <div>
       <Calendar
@@ -18,7 +19,8 @@ const HomeView = ({
       <Entries
         entries={entries}
         currentDate={currentDate}
-        selectedDay={selectedDay} />
+        selectedDay={selectedDay}
+        fetchUserEntries={fetchUserEntries} />
     </div>
   )
 }
@@ -28,7 +30,8 @@ HomeView.propTypes = {
   currentDate: PropTypes.object.isRequired,
   selectedDay: PropTypes.object.isRequired,
   setCurrentDate: PropTypes.func.isRequired,
-  setSelectedDay: PropTypes.func.isRequired
+  setSelectedDay: PropTypes.func.isRequired,
+  fetchUserEntries: PropTypes.func.isRequired
 }
 
 export default HomeView

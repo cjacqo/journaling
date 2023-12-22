@@ -95,7 +95,8 @@ function App() {
                     currentDate={currentDate}
                     selectedDay={selectedDay}
                     setCurrentDate={handleDateChange}
-                    setSelectedDay={handleSelectedDay} />
+                    setSelectedDay={handleSelectedDay}
+                    fetchUserEntries={fetchUserEntries} />
                 )
               }
             </>
