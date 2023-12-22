@@ -24,7 +24,6 @@ const EntriesList = ({ entries, currentDate, selectedDay, setSelectedEntry, setM
   }
 
   const handleEntrySelection = (entry) => {
-    console.log(entry)
     setSelectedEntry(entry)
     setModalOpen(true)
   }
