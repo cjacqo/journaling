@@ -5,21 +5,21 @@ import { faGear } from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = ({ user, onLoggedOut }) => {
   return (
-    <nav>
-      {!user && (
-        <>
-          <Link to='/login'>Login</Link>
-          <Link to='/signup'>Signup</Link>
-        </>
-      )}
-      {user && (
-        <>
-          <button>
+    <nav className='w-full bg-slate-100 p-4 flex justify-end items-center'>
+      <div className='flex gap-4 items-center'>
+        {!user && (
+          <>
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Signup</Link>
+          </>
+        )}
+        {user && (
+          <>
             <FontAwesomeIcon icon={faGear} />
             <Link onClick={onLoggedOut}>Logout</Link>
-          </button>
-        </>
-      )}
+          </>
+        )}
+      </div>
     </nav>
   )
 }
