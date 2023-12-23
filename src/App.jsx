@@ -3,6 +3,7 @@ import './App.css'
 import { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { HomeView, LoginView, SignupView } from './components/views'
+import Navbar from './components/navbar/Navbar'
 
 function App() {
   // Look for items in local storage
@@ -48,8 +49,16 @@ function App() {
     setSelectedDay(day)
   }
   
+  // Handle the user logout
+  const handleUserLogout = () => {
+    setUser(null)
+    setToken(null)
+    localStorage.clear()
+  }
+  
   return (
     <BrowserRouter>
+      <Navbar user={user} onLoggedOut={() => handleUserLogout()} />
       <Routes>
         {/* SIGNUP ROUTE */}
         <Route
