@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const NavigateButton = ({ route, text, link }) => {
   return (
-    <div className="navigate-btn--container">
+    <div className="navigate-btn--container text-center">
       <span className="navigate-btn--text">{text}</span>
       &nbsp;
       <Link to={`/${route}`}>
